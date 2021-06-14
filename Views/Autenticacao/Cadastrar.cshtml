@@ -6,10 +6,11 @@
 
 <h2>Cadastrar</h2>
 
-@using (Html.BeginForm()) 
+@*@using (Html.BeginForm())*@
+@using (Html.BeginForm("Cadastrar", "Autenticacao", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>CadastroUsuarioViewModel</h4>
         <hr />
