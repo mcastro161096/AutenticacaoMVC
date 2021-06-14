@@ -1,8 +1,6 @@
 ﻿using Microsoft.Owin;
-using Owin;
-using System;
-using System.Threading.Tasks;
 using Microsoft.Owin.Security.Cookies;
+using Owin;
 
 [assembly: OwinStartup(typeof(AutenticacaoMVC.Startup))]
 
