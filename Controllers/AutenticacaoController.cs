@@ -36,6 +36,12 @@ namespace AutenticacaoMVC.Controllers
                     Senha = HashService.GerarHash(viewModel.Senha)
                 };
 
+                if (_usuarioService.LoginExists(usuario))
+                {
+                    ModelState.AddModelError("Login", "Esse login já está em uso.");
+                    return View(viewModel);
+                }
+
                 if (_usuarioService.Add(usuario))
                 {
                     return RedirectToAction("Index", "Home");

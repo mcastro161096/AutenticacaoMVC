@@ -15,5 +15,10 @@ namespace AutenticacaoMVC.Services
         {
             return _usuarioRepository.Add(usuario);
         }
+
+        public bool LoginExists(Usuario usuario)
+        {
+           return _usuarioRepository.LoginExists(usuario);
+        }
     }
 }

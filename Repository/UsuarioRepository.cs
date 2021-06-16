@@ -2,6 +2,7 @@
 using AutenticacaoMVC.Models;
 using AutenticacaoMVC.Models.Context;
 using System;
+using System.Linq;
 
 namespace AutenticacaoMVC.Repository
 {
@@ -20,6 +21,18 @@ namespace AutenticacaoMVC.Repository
             catch (Exception)
             {
 
+                return false;
+            }
+        }
+
+        public bool LoginExists(Usuario usuario)
+        {
+            if (db.Usuarios.Count(x => x.Login == usuario.Login) > 0)
+            {
+                return true;
+            }
+            else
+            {
                 return false;
             }
         }
