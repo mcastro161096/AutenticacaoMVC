@@ -1,6 +1,7 @@
 ﻿using AutenticacaoMVC.Iservices;
 using AutenticacaoMVC.Models;
 using AutenticacaoMVC.Models.ViewModels;
+using AutenticacaoMVC.Services;
 using System.Web.Mvc;
 
 namespace AutenticacaoMVC.Controllers
@@ -32,12 +33,15 @@ namespace AutenticacaoMVC.Controllers
                 {
                     Nome = viewModel.Nome,
                     Login = viewModel.Login,
-                    Senha = viewModel.Senha
+                    Senha = HashService.GerarHash(viewModel.Senha)
                 };
-                
-                _usuarioService.Add(usuario);
+
+                if (_usuarioService.Add(usuario))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
-            return RedirectToAction("Index", "Home");
+            return View(viewModel);
         }
     }
 }
