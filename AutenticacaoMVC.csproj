@@ -159,6 +159,7 @@
     <Compile Include="Models\Context\AutenticacaoMVCContext.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\ViewModels\CadastroUsuarioViewModel.cs" />
+    <Compile Include="Models\ViewModels\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\UsuarioRepository.cs" />
     <Compile Include="Services\HashService.cs" />
@@ -173,6 +174,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Autenticacao\Cadastrar.cshtml" />
     <Content Include="Scripts\jquery-1.9.0.min.map" />
+    <Content Include="Views\Autenticacao\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

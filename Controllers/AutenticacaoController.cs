@@ -49,5 +49,14 @@ namespace AutenticacaoMVC.Controllers
             }
             return View(viewModel);
         }
+
+        public ActionResult Login(string ReturnUrl)
+        {
+           var viewModel = new LoginViewModel
+            {
+                UrlRetorno = ReturnUrl
+            };
+            return View(viewModel);
+        }
     }
 }
