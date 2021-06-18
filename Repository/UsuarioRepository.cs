@@ -1,6 +1,8 @@
 ﻿using AutenticacaoMVC.IRepository;
 using AutenticacaoMVC.Models;
 using AutenticacaoMVC.Models.Context;
+using AutenticacaoMVC.Models.ViewModels;
+using AutenticacaoMVC.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +31,14 @@ namespace AutenticacaoMVC.Repository
         public IEnumerable<Usuario> GetAll()
         {
             return db.Usuarios.ToList();
+        }
+
+        public Usuario Login(LoginViewModel login)
+        {
+            var senhacriptografada = HashService.GerarHash(login.Senha);
+            var usuario = db.Usuarios.FirstOrDefault(l => l.Login == login.Login && l.Senha == senhacriptografada);
+            
+            return usuario;
         }
 
         public bool LoginExists(Usuario usuario)

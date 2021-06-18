@@ -1,6 +1,7 @@
 ﻿using AutenticacaoMVC.IRepository;
 using AutenticacaoMVC.Iservices;
 using AutenticacaoMVC.Models;
+using AutenticacaoMVC.Models.ViewModels;
 using System.Collections.Generic;
 
 namespace AutenticacaoMVC.Services
@@ -20,6 +21,11 @@ namespace AutenticacaoMVC.Services
         public IEnumerable<Usuario> GetAll()
         {
             return _usuarioRepository.GetAll();
+        }
+
+        public Usuario Login(LoginViewModel login)
+        {
+           return _usuarioRepository.Login(login);
         }
 
         public bool LoginExists(Usuario usuario)

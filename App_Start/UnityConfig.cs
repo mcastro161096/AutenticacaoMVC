@@ -48,6 +48,7 @@ namespace AutenticacaoMVC
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IUsuarioRepository, UsuarioRepository>();
             container.RegisterType<IUsuarioService, UsuarioService>();
+            container.RegisterType<IAutenticacaoService, AutenticacaoService>();
         }
     }
 }
