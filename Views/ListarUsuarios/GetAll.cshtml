@@ -1,0 +1,31 @@
+﻿@model IEnumerable<AutenticacaoMVC.Models.Usuario>
+
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<h2>Lista de usuários cadastrados.</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Login)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Login)
+        </td>
+    </tr>
+}
+
+</table>

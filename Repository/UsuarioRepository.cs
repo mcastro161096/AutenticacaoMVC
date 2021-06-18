@@ -2,6 +2,7 @@
 using AutenticacaoMVC.Models;
 using AutenticacaoMVC.Models.Context;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AutenticacaoMVC.Repository
@@ -23,6 +24,11 @@ namespace AutenticacaoMVC.Repository
 
                 return false;
             }
+        }
+
+        public IEnumerable<Usuario> GetAll()
+        {
+            return db.Usuarios.ToList();
         }
 
         public bool LoginExists(Usuario usuario)

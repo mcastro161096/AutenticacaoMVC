@@ -1,6 +1,7 @@
 ﻿using AutenticacaoMVC.IRepository;
 using AutenticacaoMVC.Iservices;
 using AutenticacaoMVC.Models;
+using System.Collections.Generic;
 
 namespace AutenticacaoMVC.Services
 {
@@ -14,6 +15,11 @@ namespace AutenticacaoMVC.Services
         public bool Add(Usuario usuario)
         {
             return _usuarioRepository.Add(usuario);
+        }
+
+        public IEnumerable<Usuario> GetAll()
+        {
+            return _usuarioRepository.GetAll();
         }
 
         public bool LoginExists(Usuario usuario)
