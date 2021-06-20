@@ -3,6 +3,7 @@ using AutenticacaoMVC.Models;
 using AutenticacaoMVC.Models.ViewModels;
 using AutenticacaoMVC.Services;
 using System;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 
@@ -56,13 +57,13 @@ namespace AutenticacaoMVC.Controllers
         [HttpGet]
         public ActionResult Login(string ReturnUrl)
         {
-           var viewModel = new LoginViewModel
+            var viewModel = new LoginViewModel
             {
                 UrlRetorno = ReturnUrl
             };
             return View(viewModel);
         }
-       
+
         [HttpPost]
         public ActionResult Login(LoginViewModel user)
         {
@@ -73,11 +74,11 @@ namespace AutenticacaoMVC.Controllers
             var usuario = _usuarioService.Login(user);
             if (usuario != null)
             {
-               var identity =  _autenticacaoService.CreateCooKie(usuario);
+                var identity =  _autenticacaoService.CreateCooKie(usuario);
                 Request.GetOwinContext().Authentication.SignIn(identity);
                 if (!String.IsNullOrWhiteSpace(user.UrlRetorno) || Url.IsLocalUrl(user.UrlRetorno))
                 {
-                    return Redirect(user.UrlRetorno.ToString());
+                    return Redirect(user.UrlRetorno);
                 }
                 else
                 {

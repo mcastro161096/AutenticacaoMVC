@@ -12,6 +12,12 @@ namespace AutenticacaoMVC.Controllers
         }
 
         [Authorize]
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [Authorize]
         public ActionResult GetAll()
         {
             var usuarios = _usuarioService.GetAll();

@@ -12,7 +12,7 @@ namespace AutenticacaoMVC.Services
             {
                 new Claim(ClaimTypes.Name, usuario.Nome),
                 new Claim("Login", usuario.Login)
-            }, "ApplivationCookie");
+            }, "AplicationCookie");
             return identity;
         }
     }
