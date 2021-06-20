@@ -88,5 +88,12 @@ namespace AutenticacaoMVC.Controllers
             ModelState.AddModelError("Login", "Login ou senha inválidos");
             return View(user);
         }
+
+        public ActionResult Logout()
+        {
+            Request.GetOwinContext().Authentication.SignOut("AplicationCookie");
+
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
