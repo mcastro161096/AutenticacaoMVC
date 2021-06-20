@@ -2,7 +2,7 @@
 using AutenticacaoMVC.Models;
 using AutenticacaoMVC.Models.ViewModels;
 using AutenticacaoMVC.Services;
-//using System;
+using System;
 using System.Web;
 using System.Web.Mvc;
 
@@ -62,29 +62,30 @@ namespace AutenticacaoMVC.Controllers
             };
             return View(viewModel);
         }
+       
         [HttpPost]
-        public ActionResult Login(LoginViewModel login)
+        public ActionResult Login(LoginViewModel user)
         {
             if (!ModelState.IsValid)
             {
-                return View(login);
+                return View(user);
             }
-            var usuario = _usuarioService.Login(login);
+            var usuario = _usuarioService.Login(user);
             if (usuario != null)
             {
                var identity =  _autenticacaoService.CreateCooKie(usuario);
                 Request.GetOwinContext().Authentication.SignIn(identity);
-               // if (!String.IsNullOrWhiteSpace(login.UrlRetorno) || Url.IsLocalUrl(login.UrlRetorno))
-                //{
-                    return Redirect(login.UrlRetorno);
-               // }
-               // else
-               // {
-                   // return RedirectToAction("GetAll", "ListarUsuarios");
-                //}
+                if (!String.IsNullOrWhiteSpace(user.UrlRetorno) || Url.IsLocalUrl(user.UrlRetorno))
+                {
+                    return Redirect(user.UrlRetorno.ToString());
+                }
+                else
+                {
+                    return RedirectToAction("GetAll", "ListarUsuarios");
+                }
             }
             ModelState.AddModelError("Login", "Login ou senha inválidos");
-            return View(login);
+            return View(user);
         }
     }
 }

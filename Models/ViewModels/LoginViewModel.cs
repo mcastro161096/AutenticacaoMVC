@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace AutenticacaoMVC.Models.ViewModels
 {
     public class LoginViewModel
     {
+        [HiddenInput]
         public string UrlRetorno { get; set; }
 
         [Required(ErrorMessage = "Informe seu login")]
