@@ -32,5 +32,10 @@ namespace AutenticacaoMVC.Services
         {
            return _usuarioRepository.LoginExists(usuario);
         }
+
+        public bool AlterarSenha(Usuario usuario)
+        {
+            return _usuarioRepository.AlterarSenha(usuario);
+        }
     }
 }

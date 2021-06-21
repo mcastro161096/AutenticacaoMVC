@@ -52,5 +52,24 @@ namespace AutenticacaoMVC.Repository
                 return false;
             }
         }
+
+
+        public bool AlterarSenha(Usuario usuario)
+        {
+            try
+            {
+                usuario.Senha = HashService.GerarHash(usuario.Senha);
+                db.Entry(usuario).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+            
+        }
+
     }
 }

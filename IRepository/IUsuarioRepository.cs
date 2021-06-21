@@ -13,5 +13,7 @@ namespace AutenticacaoMVC.IRepository
         Usuario Login(LoginViewModel login);
 
         bool LoginExists(Usuario usuario);
+
+        bool AlterarSenha(Usuario usuario);
     }
 }
