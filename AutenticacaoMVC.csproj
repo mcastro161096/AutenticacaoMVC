@@ -163,6 +163,7 @@
     <Compile Include="Iservices\IUsuarioService.cs" />
     <Compile Include="Models\Context\AutenticacaoMVCContext.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\ViewModels\AlterarSenhaViewModel.cs" />
     <Compile Include="Models\ViewModels\CadastroUsuarioViewModel.cs" />
     <Compile Include="Models\ViewModels\LoginViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
