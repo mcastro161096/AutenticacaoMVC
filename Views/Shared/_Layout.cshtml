@@ -21,9 +21,18 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Cadastre-se", "Cadastrar", "Autenticacao")</li>
-                    <li>@Html.ActionLink("Login", "Login", "Autenticacao")</li>
-                    <li>@Html.ActionLink("Sair", "Logout", "Autenticacao")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a>@User.Identity.Name</a></li>
+                       <li>@Html.ActionLink("Sair", "Logout", "Autenticacao")</li>
+
+                        
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Cadastre-se", "Cadastrar", "Autenticacao")</li>
+                        <li>@Html.ActionLink("Login", "Login", "Autenticacao")</li>
+                    }
 
                 </ul>
             </div>
