@@ -24,9 +24,10 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li><a>@User.Identity.Name</a></li>
-                       <li>@Html.ActionLink("Sair", "Logout", "Autenticacao")</li>
+                        <li>@Html.ActionLink("Sair", "Logout", "Autenticacao")</li>
+                        <li>@Html.ActionLink("Alterar senha", "AlterarSenha", "Perfil")</li>
 
-                        
+
                     }
                     else
                     {
